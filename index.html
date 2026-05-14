@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Lookbook Library | Buy and Sell Used Books</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+	<div id="app">
+		<header class="site-header" id="home">
+			<nav class="container nav-wrap" aria-label="Main navigation">
+				<a class="brand" href="#home">
+					<div class="brand">
+					</div>
+				</a>
+				<ul class="nav-links">
+				</ul>
+				<button class="nav-cta" type="button">Books Listed ({{ listedBooks }})</button>
+			</nav>
+		</header>
+		<main>
+			<section class="hero">
+				<div class="container hero-wrap">
+					<p class="eyebrow">Community Book Exchange</p>
+					<h1>Your local online library for used books.</h1>
+					<p class="hero-text">
+						Buy affordable secondhand titles, list books you have finished, and give great stories a second shelf life.
+					</p>
+					<a class="btn" href="#looks">Browse Used Books</a>
+				</div>
+			</section>
+			<section id="categories">
+				<div class="container section-wrap">
+					<h2>Browse by Genre</h2>
+					<div class="pill-row">
+						<span class="pill" v-for="category in categories" :key="category">{{ category }}</span>
+					</div>
+				</div>
+			</section>
+			<section id="looks">
+				<div class="container section-wrap">
+					<div class="section-head">
+						<h2>Featured Used Books</h2>
+						<p>Quality pre-owned books from trusted local sellers.</p>
+					</div>
+					<div class="look-grid">
+						<article class="look-card" v-for="book in books" :key="book.name">
+							<img class="book-image" src="images/lookbook.jpg" alt="Used book listing" />
+							<div class="look-body">
+								<h3>{{ book.name }}</h3>
+								<p>{{ book.vibe }}</p>
+								<strong>{{ book.price }}</strong>
+							</div>
+						</article>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer>
+			<div class="container">
+				<p>© {{ year }} Lookbook Library. Buy and sell used books with your community.</p>
+			</div>
+		</footer>
+	</div>
+	<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+	<script src="app.js"></script>
+</body>
+</html>
